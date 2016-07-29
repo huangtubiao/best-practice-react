@@ -1,1 +1,1 @@
-# react+redux+webpack
+# react+redux+webpack+ES6
