@@ -8,25 +8,10 @@
 
 ## How to use
 
-First, clone the repo and install the dependencies.
-
 ```bash
-$ git clone git@github.com:ruanyf/react-babel-webpack-boilerplate.git <yourAppName>
-$ cd <yourAppName>
 $ npm install
-```
-
-Then, launch the boilerplate app.
-
-```bash
 $ npm start
-```
-
-build
-
-```bash
-$ `npm run build` or `npm run deploy`
-
+$ npm run build
 ```
 
 ## Ref
