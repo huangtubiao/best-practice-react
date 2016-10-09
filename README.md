@@ -1,6 +1,6 @@
 ## Features
 
-- React, redux, webpack, ES6 & Babel 6
+- React, redux, webpack, node server, ES6 & Babel 6
 - Lint with ESlint and Airbnb's style sheet.
 - Build with Webpack
 - Support [hot module replacement](https://webpack.github.io/docs/hot-module-replacement.html)
