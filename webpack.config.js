@@ -2,6 +2,8 @@ var webpack = require('webpack');
 var path = require('path');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
+var nodeModulesPath = path.join(__dirname, 'node_modules');
+
 module.exports = {
     devServer: {
         historyApiFallback: true,
@@ -37,7 +39,10 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['', '.js', '.jsx'],
+        extensions: ['', '.js', '.jsx']
+        // alias: {
+        //     'react': path.join(nodeModulesPath, 'react/react.js')
+        // }
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
