@@ -1,8 +1,12 @@
-var webpack = require('webpack');
-var path = require('path');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+'use strict';
 
-var nodeModulesPath = path.join(__dirname, 'node_modules');
+const webpack = require('webpack'),
+      path = require('path'),
+      OpenBrowserPlugin = require('open-browser-webpack-plugin');
+
+var config = require('./config/config'),
+    nodeModulesPath = path.join(__dirname, 'node_modules'),
+    parentNodeModulePath = path.join(path.dirname(__dirname), 'node_modules');
 
 module.exports = {
     devServer: {
@@ -36,13 +40,23 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             },
+            {
+                test: /\.scss$/,
+                loader: "style-loader!css-loader!sass-loader",
+                include: [parentNodeModulePath, nodeModulesPath, path.resolve(config.path.src)]
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
+            }
         ]
     },
     resolve: {
-        extensions: ['', '.js', '.jsx']
-        // alias: {
-        //     'react': path.join(nodeModulesPath, 'react/react.js')
-        // }
+        extensions: ["", ".js", ".jsx", ".es6", "css", "scss", "png", "jpg", "jpeg", "ico"],
+        alias: {
+            'redux': 'redux/dist/redux',
+            'react-redux': 'react-redux/dist/react-redux',
+        }
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
