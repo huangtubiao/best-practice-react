@@ -1,7 +1,8 @@
 'use strict';
 
 const path = require('path'),
-      __basename = path.dirname(__dirname);
+      __basename = path.dirname(__dirname),
+      isProduction = process.env.NODE_ENV === '__PROD__';
 
 /**
  * [config basic configuration]
@@ -11,9 +12,7 @@ var config = {
     env: process.env.NODE_ENV,
     path: {
         src: path.resolve(__basename, "app"),
-        dist: path.resolve(__basename, "dist"),
-        pub: path.resolve(__basename, "pub"),
-        node: path.resolve(__basename, "node"),
+        pub: path.resolve(__basename, "pub")
     }
 }
 
