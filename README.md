@@ -10,8 +10,8 @@
 
 ```bash
 $ npm install
-$ npm start
-$ npm run build
+$ npm run dev
+$ npm run pub
 ```
 
 ## 命令环境
@@ -30,4 +30,5 @@ package.json中的scripts，若是Windows，设置环境请用set，若是Mac，
 - [webpack使用优化（基本篇）](https://github.com/lcxfs1991/blog/issues/2)
 - [webpack使用优化（react篇）](https://github.com/lcxfs1991/blog/issues/7)
 - [开发工具心得：如何 10 倍提高你的 Webpack 构建效率](https://segmentfault.com/a/1190000005770042)
+- [webpack Performance: The Comprehensive Guide](https://github.com/lcxfs1991/blog/issues/15)
 - [webpack-best-practice-最佳实践-部署生产](http://qiutc.me/post/webpack-best-practice-最佳实践-部署生产.html)

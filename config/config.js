@@ -12,8 +12,15 @@ var config = {
     env: process.env.NODE_ENV,
     path: {
         src: path.resolve(__basename, "app"),
+        dist: path.resolve(__basename, "dist"),
         pub: path.resolve(__basename, "pub")
-    }
+    },
+    chunkhash: (isProduction) ? "-[chunkhash:6]" : "",
+    hash: (isProduction) ? "-[hash:6]" : "",
+    defaultPath: "//localhost:9000/",
+    cdn: "//localhost:8000/",
+    serverPort: 9000,        // port for local server
+    hostDirectory: "/news/"  // http://host/hostDirectory/
 }
 
 module.exports = config;
