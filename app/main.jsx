@@ -5,11 +5,6 @@ import App from './components/App.jsx';
 import About from './components/About.jsx';
 import Repos from './components/Repos.jsx';
 import Repo from './components/Repo.jsx';
-//
-// ReactDOM.render(
-//     <App />,
-//     document.body.appendChild(document.createElement('div'))
-// );
 
 render((
     <Router history={hashHistory}>

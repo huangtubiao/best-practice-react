@@ -15,7 +15,13 @@ module.exports = {
         inline: true,
         progress: true,
         contentBase: './app',   //静态资源的目录 相对路径,相对于当前路径 默认为当前config所在的目录
-        port: 8080
+        port: 8080,
+        proxy: {
+            '/api/*': {
+                target: 'http://localhost:3001',
+                secure: false
+            }
+        }
     },
     entry: [
         'webpack/hot/dev-server',
