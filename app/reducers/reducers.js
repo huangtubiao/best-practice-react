@@ -3,6 +3,8 @@ var reducer = function(state = { count: 0 }, action) {
     switch (action.type) {
         case 'increase':
             return { count: count + 1 }
+        case 'dcrement':
+            return { count: count - 1 }
         default:
             return state
     }

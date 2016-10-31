@@ -1,5 +1,10 @@
 import { Provider, connect } from 'react-redux'
 import Counter from '../components/counter/index'
+import { increase, dcrement } from '../actions/actions'
+
+// Action Creator
+const increaseAction = increase('减1')
+const DcrementAction = dcrement('加1')
 
 function mapStateToProps(state) {
     return {
@@ -9,12 +14,14 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        onIncreaseClick: () => dispatch(increaseAction)
+        onIncreaseClick: function() {
+            dispatch(increaseAction);
+        },
+        onDcrementClick: function() {
+            dispatch(DcrementAction);
+        }
     }
 }
-
-// Action Creator
-const increaseAction = { type: 'increase' }
 
 export default connect(
     mapStateToProps,
