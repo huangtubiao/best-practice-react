@@ -26,7 +26,7 @@ module.exports = {
     entry: [
         'webpack/hot/dev-server',
         'webpack-dev-server/client?http://localhost:8080',
-        path.resolve(__dirname, 'app/main.js')
+        path.resolve(__dirname, 'app/page/main.js')
     ],
     output: {
         path: path.join(config.path.dist),
@@ -51,7 +51,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader',
-                include: path.resolve(__dirname, 'app')
+                include: path.resolve(config.path.src)
             },
             {
                 test: /\.scss$/,
