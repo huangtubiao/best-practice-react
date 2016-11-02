@@ -14,7 +14,7 @@ var WebpackMd5Hash = require('webpack-md5-hash');
 module.exports = {
     devtool: 'cheap-source-map',
     entry: [
-        path.resolve(__dirname, 'app/main.jsx'),
+        path.resolve(__dirname, 'app/page/main.js'),
     ],
     output: {
         publicPath: config.cdn,
