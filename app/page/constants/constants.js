@@ -1,3 +1,7 @@
+/*
+ * Constants，用于定义变量
+ */
+
 export const LATEST_NEWS = 10;
 export const LIKE_NEWS = 11;
 

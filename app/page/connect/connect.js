@@ -1,4 +1,7 @@
-import { Provider, connect } from 'react-redux'
+/*
+ * Connect，用于 UI 组件生成容器组件。意思就是将这两种组件连起来
+ */
+import { connect } from 'react-redux'
 import Counter from '../components/counter/index'
 import { increase, dcrement } from '../actions/actions'
 

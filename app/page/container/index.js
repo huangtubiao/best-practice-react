@@ -1,3 +1,6 @@
+/*
+ * Container，目前我也不是很理解，是否可理解为一个page？
+ */
 import React, { Component, PropTypes } from 'react';
 import merge from 'lodash.merge';
 import { render } from 'react-dom';

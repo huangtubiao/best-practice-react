@@ -1,3 +1,6 @@
+/*
+ * Component，tab 组件
+ */
 import React, { Component, PropTypes } from 'react';
 import pureRender from 'pure-render-decorator';
 import { LATEST_NEWS, LIKE_NEWS } from '../../constants/constants';
@@ -51,7 +54,7 @@ export default class Tab extends Component {
     }
 
     switchTab() {
-        let tab = parseInt(e.target.dataset.tab); // ?????
+        let tab = parseInt(e.target.dataset.tab);
         this.props.updateActiveTab(tab);
     }
 
