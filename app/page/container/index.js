@@ -4,8 +4,14 @@
 import React, { Component, PropTypes } from 'react';
 import merge from 'lodash.merge';
 import { render } from 'react-dom';
+import Connect from '../connect/connect';
+import { ALL_ANCHOR, MY_FOLLOW } from '../constants/constants';
+
+require('./index.scss');
+import Tab from '../components/tab/index';
 
 class Wrapper extends Component {
+
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -41,7 +47,15 @@ class Wrapper extends Component {
     render() {
         return (
             <article className="cm-page">
+                <Tab tabs={this.props.tabs}
+                updateActiveTab={this.props.updateActiveTab}
+                />
+                <div className="cm-content">
+                
+                </div>
             </article>
         )
     }
 }
+
+export default Connect(Wrapper);

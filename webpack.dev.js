@@ -86,7 +86,8 @@ module.exports = {
             'redux': 'redux/dist/redux.min',
             'react-redux': 'react-redux/dist/react-redux',
             'react-router': 'react-router/umd/ReactRouter',
-            'react-router-redux': 'react-router-redux/dist/ReactRouterRedux'
+            'react-router-redux': 'react-router-redux/dist/ReactRouterRedux',
+            'utils': path.join(config.path.src, '/js/common/utils')
         }
     },
     plugins: [

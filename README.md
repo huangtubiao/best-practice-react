@@ -33,3 +33,4 @@ package.json中的scripts，若是Windows，设置环境请用set，若是Mac，
 - [webpack Performance: The Comprehensive Guide](https://github.com/lcxfs1991/blog/issues/15)
 - [webpack-best-practice-最佳实践-部署生产](http://qiutc.me/post/webpack-best-practice-最佳实践-部署生产.html)
 - [精益 React 学习指南 （Lean React）序](https://segmentfault.com/a/1190000005136764)
+- [使用Redux管理你的React应用](https://github.com/matthew-sun/redux-example)

@@ -2,31 +2,29 @@
  * Component，tab 组件
  */
 import React, { Component, PropTypes } from 'react';
-import pureRender from 'pure-render-decorator';
-import { LATEST_NEWS, LIKE_NEWS } from '../../constants/constants';
+import { ALL_ANCHOR, MY_FOLLOW } from '../../constants/constants';
 
-import Touch from 'touch';
+// import Touch from 'touch';
 import classNames from 'classnames';
 require('./index.scss');
 
-function TabItem() {
+function TabItem(item, key) {
     return (
-        <li data-tab={item.label}
-            key={key}
-        >
-            <Touch data-tab={item.label} onTap={this.switchTab}>{item.text}</Touch>
+        <li data-tab={item.label} key={key}>
+            {item.text}
         </li>
     )
 }
 
-function TabHighlight() {
-    var isActive = (props.active === LIKE_NEWS);
+function TabHighlight(props) {
+    var isActive = (props.active === MY_FOLLOW);
     return (
         <i className={classNames('icon-active', {'pull-right': isActive})}></i>
     )
 }
 
 export default class Tab extends Component {
+
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -34,12 +32,12 @@ export default class Tab extends Component {
         };
         this.tabs = [
             {
-                label: LATEST_NEWS,
-                text: '最新新闻'
+                label: ALL_ANCHOR,
+                text: '全部主播'
             },
             {
-                label: LIKE_NEWS,
-                text: '我的收藏'
+                label: MY_FOLLOW,
+                text: '我的关注'
             }
         ];
         this.switchTab = this.switchTab.bind(this);
