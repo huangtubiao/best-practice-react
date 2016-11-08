@@ -12,6 +12,7 @@ function TabItem(item, key) {
     return (
         <li data-tab={item.label} key={key}>
             {item.text}
+            {/*<Touch data-tab={item.label} onTap={this.switchTab}>{item.text}</Touch>*/}
         </li>
     )
 }
@@ -51,7 +52,7 @@ export default class Tab extends Component {
 
     }
 
-    switchTab() {
+    switchTab(e) {
         let tab = parseInt(e.target.dataset.tab);
         this.props.updateActiveTab(tab);
     }

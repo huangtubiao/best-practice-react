@@ -9,6 +9,9 @@ import configureStore from './stores/configureStore';
 
 import IndexWrapper from './container/index';
 
+require('../css/common/common.scss');
+
+
 let store = configureStore();
 
 export default class Root extends Component {
