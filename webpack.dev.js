@@ -8,7 +8,7 @@ var config = require('./config/config'),
     nodeModulesPath = path.join(__dirname, 'node_modules'),
     parentNodeModulePath = path.join(path.dirname(__dirname), 'node_modules');
 
-module.exports = {
+var devConfig = {
     devServer: {
         historyApiFallback: true,
         hot: true,  //自动刷新
@@ -100,3 +100,5 @@ module.exports = {
     watch: true, //  watch mode
     // devtool: "#inline-source-map",
 };
+
+module.exports = devConfig;
