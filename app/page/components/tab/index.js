@@ -4,15 +4,16 @@
 import React, { Component, PropTypes } from 'react';
 import { ALL_ANCHOR, MY_FOLLOW } from '../../constants/constants';
 
-// import Touch from 'touch';
+import Touch from 'touch';
 import classNames from 'classnames';
 require('./index.scss');
 
 function TabItem(item, key) {
     return (
-        <li data-tab={item.label} key={key}>
-            {item.text}
-            {/*<Touch data-tab={item.label} onTap={this.switchTab}>{item.text}</Touch>*/}
+        <li data-tab={item.label} 
+            key={key}
+        >
+            <Touch data-tab={item.label} onTap={this.switchTab}>{item.text}</Touch>
         </li>
     )
 }
