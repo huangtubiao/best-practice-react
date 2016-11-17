@@ -23,4 +23,9 @@ var config = {
     hostDirectory: "/news/"  // http://host/hostDirectory/
 }
 
+if (!isProduction) {
+    const utils = require('./utils');
+    config.html = utils.getHtmlFile(config.path.src);
+}
+
 module.exports = config;

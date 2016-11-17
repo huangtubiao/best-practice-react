@@ -8,13 +8,15 @@ var config = require('./config/config'),
     nodeModulesPath = path.join(__dirname, 'node_modules'),
     parentNodeModulePath = path.join(path.dirname(__dirname), 'node_modules');
 
+var HtmlResWebpackPlugin = require('html-res-webpack-plugin');
+
 var devConfig = {
     devServer: {
         historyApiFallback: true,
         hot: true,  //自动刷新
         inline: true,
         progress: true,
-        contentBase: './app',   //静态资源的目录 相对路径,相对于当前路径 默认为当前config所在的目录
+        // contentBase: './app',   //静态资源的目录 相对路径,相对于当前路径 默认为当前config所在的目录
         port: 8080,
         proxy: {
             '/api/*': {
@@ -29,9 +31,10 @@ var devConfig = {
         path.resolve(__dirname, 'app/page/main.js')
     ],
     output: {
+        publicPath: '/',      
         path: path.join(config.path.dist),
-        publicPath: '/',        // 用于调试或者CDN之类的域名，publicPath: "assets", 通过localhost:8080/assets/bundle.js来访问
-        filename: './bundle.js'
+        filename: "js/[name]" + config.chunkhash + ".js",
+        chunkFilename: "js/chunk/[name]" + config.chunkhash + ".js"
     },
     module: {
         loaders:[
@@ -100,5 +103,23 @@ var devConfig = {
     watch: true, //  watch mode
     // devtool: "#inline-source-map",
 };
+
+devConfig.addPlugins = function(plugin, opt) {
+    devConfig.plugins.push(new plugin(opt));
+};
+
+config.html.forEach(function(page) {
+    devConfig.addPlugins(HtmlResWebpackPlugin, {
+        filename: page + ".html",
+        template: "app/" + page + ".html",
+        jsHash: "[name]" + config.chunkhash + ".js",
+        cssHash:  "[name]" + config.chunkhash + ".css",
+        isHotReload: true,
+        templateContent: function(tpl) {
+            return tpl;
+        }, 
+        htmlMinify: null
+    });
+}); 
 
 module.exports = devConfig;
