@@ -11,25 +11,28 @@ var config = require('./config/config'),
 var HtmlResWebpackPlugin = require('html-res-webpack-plugin');
 
 var devConfig = {
-    devServer: {
-        historyApiFallback: true,
-        hot: true,  //自动刷新
-        inline: true,
-        progress: true,
-        // contentBase: './app',   //静态资源的目录 相对路径,相对于当前路径 默认为当前config所在的目录
-        port: 8080,
-        proxy: {
-            '/api/*': {
-                target: 'http://localhost:3001',
-                secure: false
-            }
-        }
+    // devServer: {
+    //     historyApiFallback: true,
+    //     hot: true,  //自动刷新
+    //     inline: true,
+    //     progress: true,
+    //     // contentBase: './app',   //静态资源的目录 相对路径,相对于当前路径 默认为当前config所在的目录
+    //     port: 8080,
+    //     proxy: {
+    //         '/api/*': {
+    //             target: 'http://localhost:3001',
+    //             secure: false
+    //         }
+    //     }
+    // },
+    entry: {
+        index: [path.join(config.path.src, "page/main.js")]
     },
-    entry: [
-        'webpack/hot/dev-server',
-        'webpack-dev-server/client?http://localhost:8080',
-        path.resolve(__dirname, 'app/page/main.js')
-    ],
+    // entry: [
+    //     'webpack/hot/dev-server',
+    //     'webpack-dev-server/client?http://localhost:8080',
+    //     path.resolve(__dirname, 'app/page/main.js')
+    // ],
     output: {
         publicPath: '/',      
         path: path.join(config.path.dist),
@@ -95,8 +98,8 @@ var devConfig = {
         }
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
+        // new webpack.HotModuleReplacementPlugin(),
+        // new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
          //允许错误不打断程序
         new webpack.NoErrorsPlugin()
     ],

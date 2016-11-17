@@ -4,7 +4,7 @@
   "description": "",
   "main": "app/main.jsx",
   "scripts": {
-    "dev": "set NODE_ENV=__DEV__&&webpack-dev-server --devtool eval --progress --hot --content-base",
+    "dev": "set NODE_ENV=__DEV__&&node ./webpack.server.js",
     "pub": "set NODE_ENV=__PROD__&&webpack"
   },
   "dependencies": {
@@ -36,6 +36,7 @@
     "lodash.merge": "^4.6.0",
     "node-sass": "^3.10.1",
     "open-browser-webpack-plugin": "0.0.2",
+    "proxy-middleware": "^0.15.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
@@ -49,7 +50,9 @@
     "url-loader": "^0.5.7",
     "validate-commit-msg": "2.x",
     "webpack": "latest",
+    "webpack-dev-middleware": "^1.8.4",
     "webpack-dev-server": "latest",
+    "webpack-hot-middleware": "^2.13.2",
     "webpack-md5-hash": "0.0.5"
   },
   "keywords": [
