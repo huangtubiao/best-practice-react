@@ -4,6 +4,10 @@
   "description": "",
   "main": "app/main.jsx",
   "scripts": {
+    "dev": "export NODE_ENV=__DEV__&&node ./webpack.server.js",
+    "pub": "export NODE_ENV=__PROD__&&webpack"
+  },
+  "win-scripts": {
     "dev": "set NODE_ENV=__DEV__&&node ./webpack.server.js",
     "pub": "set NODE_ENV=__PROD__&&webpack"
   },

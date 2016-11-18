@@ -1,6 +1,7 @@
 'use strict';
 
 const path = require('path'),
+      utils = require('./utils'),
       __basename = path.dirname(__dirname),
       isProduction = process.env.NODE_ENV === '__PROD__';
 
@@ -17,15 +18,12 @@ var config = {
     },
     chunkhash: (isProduction) ? "-[chunkhash:6]" : "",
     hash: (isProduction) ? "-[hash:6]" : "",
-    defaultPath: "//localhost:9001/",
+    defaultPath: "//localhost:9000/",
     cdn: "//localhost:8000/",
-    serverPort: 9001,        // port for local server
+    serverPort: 9000,        // port for local server
     hostDirectory: "/news/"  // http://host/hostDirectory/
 }
 
-if (!isProduction) {
-    const utils = require('./utils');
-    config.html = utils.getHtmlFile(config.path.src);
-}
+config.html = utils.getHtmlFile(config.path.src);
 
 module.exports = config;

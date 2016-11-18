@@ -26,7 +26,7 @@ var devConfig = {
     //     }
     // },
     entry: {
-        index: [path.join(config.path.src, "page/main.js")]
+        index: [path.join(config.path.src, "/page/main.js")]
     },
     // entry: [
     //     'webpack/hot/dev-server',
@@ -34,21 +34,21 @@ var devConfig = {
     //     path.resolve(__dirname, 'app/page/main.js')
     // ],
     output: {
-        publicPath: '/',      
+        publicPath: '/',
         path: path.join(config.path.dist),
         filename: "js/[name]" + config.chunkhash + ".js",
         chunkFilename: "js/chunk/[name]" + config.chunkhash + ".js"
     },
     module: {
         loaders:[
-            { 
+            {
                 test: /\.(js|jsx)$/,
                 loader: 'babel',
                 query: {
                     cacheDirectory: false,//'/webpack_cache/',
                     // plugins: ['transform-decorators-legacy'],
                     presets: [
-                        'es2015-loose', 
+                        'es2015-loose',
                         'react',
                     ]
                 },
@@ -75,17 +75,17 @@ var devConfig = {
                 ],
                 include: path.resolve(config.path.src)
             },
-            { 
-                test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,  
-                loader: 'url-loader?importLoaders=1&limit=10000&name=fonts/[name]' + config.hash + '.[ext]' 
+            {
+                test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+                loader: 'url-loader?importLoaders=1&limit=10000&name=fonts/[name]' + config.hash + '.[ext]'
             }
         ],
         noParse: [
-            
+
         ]
     },
     resolve: {
-        // moduledirectories:['node_modules', config.path.src],
+        moduledirectories:['node_modules', config.path.src],
         extensions: ["", ".js", ".jsx", ".es6", "css", "scss", "png", "jpg", "jpeg", "ico"],
         // reduce searching time
         alias: {
@@ -115,14 +115,17 @@ config.html.forEach(function(page) {
     devConfig.addPlugins(HtmlResWebpackPlugin, {
         filename: page + ".html",
         template: "app/" + page + ".html",
+        favicon: "app/favicon.ico",
         jsHash: "[name]" + config.chunkhash + ".js",
         cssHash:  "[name]" + config.chunkhash + ".css",
         isHotReload: true,
         templateContent: function(tpl) {
             return tpl;
-        }, 
+        },
         htmlMinify: null
     });
-}); 
+});
+
+devConfig.addPlugins(webpack.HotModuleReplacementPlugin);
 
 module.exports = devConfig;
