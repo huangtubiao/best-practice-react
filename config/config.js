@@ -18,9 +18,9 @@ var config = {
     },
     chunkhash: (isProduction) ? "-[chunkhash:6]" : "",
     hash: (isProduction) ? "-[hash:6]" : "",
-    defaultPath: "//localhost:9000/",
+    defaultPath: "//localhost:9001/",
     cdn: "//localhost:8000/",
-    serverPort: 9000,        // port for local server
+    serverPort: 9001,        // port for local server
     hostDirectory: "/news/"  // http://host/hostDirectory/
 }
 
