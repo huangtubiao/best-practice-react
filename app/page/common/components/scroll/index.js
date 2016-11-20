@@ -112,7 +112,7 @@ export default class Scroll extends Component {
             // 条件一： 滚动到最底部才拉数据
             // if (scrollTop + winHeight >= clientHeight) {
             // 条件二： 滚动到中间拉数据
-            // console.log(scrollTop, scrollHeight, containerHeight);
+            console.log(scrollTop, scrollHeight, containerHeight);
 
             if (scrollTop >= (scrollHeight - containerHeight) / 2) {
                 this.props.loadDataForScroll && this.props.loadDataForScroll();

@@ -35,6 +35,7 @@ export default class List extends Component {
         window.removeEventListener('touchstart', this.hideLikeBtn(), false);
     }
 
+    // 跳转到详情页面
     jumpToDetail(item) {
         return (e) => {
             if (!this.isClickOnBtn) {
@@ -50,6 +51,7 @@ export default class List extends Component {
         }
     }
 
+    // 显示关注或取消按钮
     showLikeBtn(item, e) {
         return (e) => {
             e.preventDefault();
@@ -60,6 +62,7 @@ export default class List extends Component {
         }
     }
 
+    // 隐藏关注或取消按钮
     hideLikeBtn(e) {
         return (e) => {
             let target = e.target,
@@ -75,6 +78,7 @@ export default class List extends Component {
         }
     }
 
+    // 关注
     like(item) {
         return (e) => {
             this.isClickOnBtn = true;
@@ -86,6 +90,7 @@ export default class List extends Component {
         }
     }
 
+    // 取消关注
     dislike(item) {
         return (e) => {
             this.isClickOnBtn = true;
@@ -128,8 +133,8 @@ export default class List extends Component {
                             </div>
                         </div>
                         <Touch onTap={(tabsType === LATEST_NEWS) ? this.like(item) : this.dislike(item)} 
-                                className={classnames((tabsType === LATEST_NEWS) ? "like-btn" : 'dislike-btn')}>
-                                {(tabsType === LATEST_NEWS) ? "收藏" : "取消"}
+                            className={classnames((tabsType === LATEST_NEWS) ? "like-btn" : 'dislike-btn')}>
+                            {(tabsType === LATEST_NEWS) ? "收藏" : "取消"}
                         </Touch>
                     </Touch>
                 </li>

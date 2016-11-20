@@ -148,27 +148,27 @@ class Wrapper extends Component {
                 />
                 <div className="cm-content">
                     <Scroll 
-                            wrapper={".content-wrap"}
-                            ref="scroll"
-                            loadDataForScroll={this.loadDataForScroll}
+                        wrapper={".content-wrap"}
+                        ref="scroll"
+                        loadDataForScroll={this.loadDataForScroll}
                     >
                         <List 
-                              tabs={this.props.tabs}
-                              tabsType={LATEST_NEWS}
-                              news={this.props.news.listLatest}
-                              listInfo={this.props.news.listInfo.listLatest}
-                              args={this.props.args}
-                              request={this.props.request}
-                              likeNews={this.props.likeNews}
+                            tabs={this.props.tabs}
+                            tabsType={LATEST_NEWS}
+                            news={this.props.news.listLatest}
+                            listInfo={this.props.news.listInfo.listLatest}
+                            args={this.props.args}
+                            request={this.props.request}
+                            likeNews={this.props.likeNews}
                         />
                         <List 
-                              tabs={this.props.tabs}
-                              tabsType={LIKE_NEWS}
-                              news={this.props.news.listLike}
-                              listInfo={this.props.news.listInfo.listLike}
-                              args={this.props.args}
-                              request={this.props.request}
-                              dislikeNews={this.props.dislikeNews}
+                            tabs={this.props.tabs}
+                            tabsType={LIKE_NEWS}
+                            news={this.props.news.listLike}
+                            listInfo={this.props.news.listInfo.listLike}
+                            args={this.props.args}
+                            request={this.props.request}
+                            dislikeNews={this.props.dislikeNews}
                         />
                     </Scroll>
                 </div>
