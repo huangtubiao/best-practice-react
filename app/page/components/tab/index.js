@@ -2,7 +2,7 @@
  * Component，tab 组件
  */
 import React, { Component, PropTypes } from 'react';
-import { ALL_ANCHOR, MY_FOLLOW } from '../../constants/constants';
+import { LATEST_NEWS, LIKE_NEWS } from '../../constants/constants';
 
 import Touch from 'touch';
 import classNames from 'classnames';
@@ -19,7 +19,7 @@ function TabItem(item, key) {
 }
 
 function TabHighlight(props) {
-    var isActive = (props.active === MY_FOLLOW);
+    var isActive = (props.active === LIKE_NEWS);
     return (
         <i className={classNames('icon-active', {'pull-right': isActive})}></i>
     )
@@ -34,11 +34,11 @@ export default class Tab extends Component {
         };
         this.tabs = [
             {
-                label: ALL_ANCHOR,
+                label: LATEST_NEWS,
                 text: '全部主播'
             },
             {
-                label: MY_FOLLOW,
+                label: LIKE_NEWS,
                 text: '我的关注'
             }
         ];

@@ -94,7 +94,8 @@ var devConfig = {
             'react-router': 'react-router/umd/ReactRouter',
             'react-router-redux': 'react-router-redux/dist/ReactRouterRedux',
             'utils': path.join(config.path.src, '/js/common/utils'),
-            'touch': path.join(config.path.src, '/page/common/components/touch/')
+            'touch': path.join(config.path.src, '/page/common/components/touch/'),
+            'scroll':path.join(config.path.src, '/page/common/components/scroll/')
         }
     },
     plugins: [

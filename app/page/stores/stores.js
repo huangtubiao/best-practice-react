@@ -1,12 +1,12 @@
 import { getItem, getHash } from 'utils';
-import { ALL_ANCHOR, MY_FOLLOW } from '../constants/constants';
+import { LATEST_NEWS, LIKE_NEWS } from '../constants/constants';
 
 /** other const **/
 const initialState = {
     args: {
         src: getHash('src'),
     },
-    tabs: ALL_ANCHOR,
+    tabs: LATEST_NEWS,
     news: {
         ids: [], // 新闻id
         listLatest: [],    // 最新新闻

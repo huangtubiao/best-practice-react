@@ -39,5 +39,5 @@ export default class Root extends Component {
 
 ReactDOM.render(
     <Root />,
-    document.getElementById('app')
+    document.getElementById('pages')
 );
