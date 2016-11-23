@@ -129,4 +129,12 @@ config.html.forEach(function(page) {
 
 devConfig.addPlugins(webpack.HotModuleReplacementPlugin);
 
+devConfig.addPlugins(webpack.DefinePlugin, {
+    "process.env": {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+    },
+    "isNode": false,
+    "console.dev": function(msg) { console.log(msg); }
+});
+
 module.exports = devConfig;
