@@ -5,12 +5,23 @@
  * 过程叫做 Reducer。
  */
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux'
 import merge from 'lodash.merge';
 import { setItem } from 'utils';
 import initialState from '../stores/stores';
-import { GET_NEWS_LIST, GET_TOP_NEWS } from '../common/constants/constants';
-import { GET_ARGS, TABS_UPDATE, TOGGLE_CONTENT,
-         TOGGLE_LIST_LOADING, TOGGLE_SPIN_LOADING, LIKE_NEWS, DISLIKE_NEWS } from '../actions/actions';
+import {
+    GET_NEWS_LIST,
+    GET_TOP_NEWS
+} from '../common/constants/constants';
+import {
+    GET_ARGS,
+    TABS_UPDATE,
+    TOGGLE_CONTENT,
+    TOGGLE_LIST_LOADING,
+    TOGGLE_SPIN_LOADING,
+    LIKE_NEWS,
+    DISLIKE_NEWS
+} from '../actions/actions';
 
 
 var news = function(state = initialState.news, action) {
@@ -29,7 +40,7 @@ var news = function(state = initialState.news, action) {
 
             var idlist = action.data.idlist,
                 newState = merge({}, state);
-            
+
             newState.ids = merge([], idlist[0].ids);
             newState.listLatest = merge([], newState.listLatest.concat(idlist[0].newslist));
 
@@ -146,6 +157,7 @@ var spinLoading = function(state = initialState.spinLoading, action) {
 
 
 const rootReducer = combineReducers({
+    routing: routerReducer,
     args,
     tabs,
     news,
