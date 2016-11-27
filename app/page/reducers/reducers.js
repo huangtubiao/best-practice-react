@@ -2,7 +2,8 @@
  * Reducers，Redux提供的combineReducers函数可以帮助我们把reducer组合在一起，
  * 这样我们就可以把Reducers拆分成一个个小的Reducer来管理Store了；
  * Reducer，Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算
- * 过程叫做 Reducer。
+ * 过程叫做 Reducer。(用户发出 Action，Store 自动调用 Reducer，并且传入两个参数：当前 State 和收到的 Action。 Reducer 会返回新的 State。)
+ * combineReducers() 做的就是产生一个整体的 Reducer 函数。该函数根据 State 的 key 去执行相应的子 Reducer
  */
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux'
@@ -29,7 +30,6 @@ var news = function(state = initialState.news, action) {
         10: 'listLatest',  // 最新新闻
         11: 'listLike',    //  收藏新闻
     };
-
     switch(action.type) {
 
         case GET_TOP_NEWS + '_SUCCESS':

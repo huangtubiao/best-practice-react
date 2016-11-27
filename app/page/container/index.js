@@ -19,7 +19,7 @@ class Wrapper extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-
+            
         };
         this.firstGetAllData = false;
         this.loadTopNews = this.loadTopNews.bind(this);
@@ -71,11 +71,10 @@ class Wrapper extends Component {
                 // console.log(res);
             },
             onError: function(res) {
-                // console.log(res);
-                // alert(res.errMsg || '加载新闻列表失败，请稍后重试');
+                console.log(res);
+                alert(res.errMsg || '加载新闻列表失败，请稍后重试');
             }
         };
-
         this.props.request(url, param, opts);
     }
 
@@ -126,9 +125,7 @@ class Wrapper extends Component {
                 // console.log(data);
             },
             onError: function(res) {
-                console.log("err");
-                // console.log(res);
-                // alert(res.errMsg || '加载新闻列表失败，请稍后重试');
+                alert(res.errMsg || '加载新闻列表失败，请稍后重试');
             }
         };
 
@@ -136,7 +133,7 @@ class Wrapper extends Component {
     }
  
     render() {
-        console.dir('render container!!!');
+
         let tabStyle = this.props.tabs,
             isEnd = this.props.news.listInfo['listLatest']['isEnd'],
             isLoadingShow = tabStyle === LATEST_NEWS;

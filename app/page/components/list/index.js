@@ -116,7 +116,7 @@ export default class List extends Component {
             [LATEST_NEWS]: 'listLatest',
             [LIKE_NEWS] : 'listLike'
         };
-        
+         
         this.listData = news;
         
         let list = news.map((item, index) => {

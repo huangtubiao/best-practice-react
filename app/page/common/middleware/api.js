@@ -9,6 +9,10 @@ import merge from 'lodash.merge';
 import CGI_PATH from '../constants/cgiPath';
 
 // 传递了store、next、action这三个参数。返回的是next。
+// 为什么要传递三个参数？
+// 对于store 因为我们要用store的dispatch和getState两个方法；
+// 因为中间件是要多个首尾相连的，对next进行一层层的“加工”，所以next必须独立一层；
+// action的话，是因为我们封装了这么多层，其实就是为了作出更高级的dispatch方法，但是在高级也是dispatch，是dispatch就得接受action这个参数。
 export default store => next => action => {
 
     let API_OPT = action['API'];
