@@ -9,6 +9,8 @@ import configureStore from './stores/configureStore';
 import { initialStore } from './stores/stores';
 
 import IndexWrapper from './container/index';
+import DetailWrapper from './container/detail';
+
 import App from './container/app';
 // redux-devtools 可以让你实时的监控Redux的状态树的Store
 import DevTools from './common/devtools/DevTools';
@@ -23,9 +25,6 @@ require('../css/common/common.scss');
 
 
 let store = configureStore(initialStore);
-console.dir('store........')
-console.dir(store.getState())
-console.dir('state.......')
 
 let history = syncHistoryWithStore(browserHistory, store);
 
@@ -45,6 +44,7 @@ export default class Root extends Component {
                     <Router history={history}>
                         <Route path="/index.html" component={App}>
                             <IndexRoute component={IndexWrapper}/>
+                            <Route path="/index/detail/:id/:commentid" component={DetailWrapper}/>
                         </Route>
                     </Router>
                     { DevToolsWrapper }

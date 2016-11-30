@@ -24,7 +24,7 @@ export default class List extends Component {
     }
 
     componentWillMount() {
-        
+
     }
 
     componentDidMount() {
@@ -39,7 +39,18 @@ export default class List extends Component {
     jumpToDetail(item) {
         return (e) => {
             if (!this.isClickOnBtn) {
-                window.location.href = item.url;
+                console.dir(item.articletype);
+				if (item.articletype === '100') {
+					var win = window.open(item.url, '_blank');
+					win.focus();
+				}
+				else {
+                    debugger
+					if (!this.props.details.hasOwnProperty(item.id)) {
+						this.props.getNewsDetail(item.id);
+					}
+					this.context.router.push('/index/detail/' + item.id + '/' + item.commentid);
+				}
             }
         }
     }
@@ -116,9 +127,9 @@ export default class List extends Component {
             [LATEST_NEWS]: 'listLatest',
             [LIKE_NEWS] : 'listLike'
         };
-         
+
         this.listData = news;
-        
+
         let list = news.map((item, index) => {
             return (
                 <li key={index + tabsType} className={classnames('item ui-border-1px', {'active-like': this.state.activeNewsId === item.id})}>
@@ -132,7 +143,7 @@ export default class List extends Component {
                                 <p className="info-content">{item.des}</p>
                             </div>
                         </div>
-                        <Touch onTap={(tabsType === LATEST_NEWS) ? this.like(item) : this.dislike(item)} 
+                        <Touch onTap={(tabsType === LATEST_NEWS) ? this.like(item) : this.dislike(item)}
                             className={classnames((tabsType === LATEST_NEWS) ? "like-btn" : 'dislike-btn')}>
                             {(tabsType === LATEST_NEWS) ? "收藏" : "取消"}
                         </Touch>
@@ -157,3 +168,7 @@ export default class List extends Component {
         )
     }
 }
+
+List.contextTypes = {
+    router: React.PropTypes.object.isRequired
+};

@@ -1,4 +1,4 @@
-## Features
+## 特性
 
 - React, redux, webpack, node server, ES6 & Babel 6
 - Lint with ESlint and Airbnb's style sheet.
@@ -6,13 +6,23 @@
 - Support [hot module replacement](https://webpack.github.io/docs/hot-module-replacement.html)
 - Auto Open a new browser tab when Webpack loads, and reload the page when you modified the code
 
-## How to use
+## 开发
 
 ```bash
 $ npm install
+$ node app.js
 $ npm run dev
+```
+
+## 编译
+
+```bash
 $ npm run pub
 ```
+
+## 打开页面
+
+127.0.0.1:9001/index.html
 
 ## 命令环境
 package.json中的scripts，若是Windows，设置环境请用set，若是Mac，设置环境请使用export，如：

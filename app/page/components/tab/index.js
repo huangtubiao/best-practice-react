@@ -10,7 +10,7 @@ require('./index.scss');
 
 function TabItem(item, key) {
     return (
-        <li data-tab={item.label} 
+        <li data-tab={item.label}
             key={key}
         >
             <Touch data-tab={item.label} onTap={this.switchTab}>{item.text}</Touch>
@@ -30,23 +30,23 @@ export default class Tab extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            
+
         };
         this.tabs = [
             {
                 label: LATEST_NEWS,
-                text: '全部主播'
+                text: '最新新闻'
             },
             {
                 label: LIKE_NEWS,
-                text: '我的关注'
+                text: '我的收藏'
             }
         ];
         this.switchTab = this.switchTab.bind(this);
     }
 
     componentWillMount() {
-        
+
     }
 
     componentDidMount() {
