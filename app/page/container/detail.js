@@ -10,14 +10,6 @@ import Touch from 'touch';
 
 require('./detail.scss');
 
-let spaPath = "";
-if ("__DEV__" === process.env.NODE_ENV || "__PROD__" === process.env.NODE_ENV) {
-	spaPath = "spa.html";
-}
-else {
-	spaPath = "spa";
-}
-
 class Detail extends Component {
 
 	constructor(props, context) {
@@ -31,7 +23,6 @@ class Detail extends Component {
 	}
 
 	componentDidMount() {
-        debugger
 		if (!this.props.details.hasOwnProperty(this.newsId)) {
 			this.getNewsDetail(this.newsId);
 		}
@@ -58,7 +49,7 @@ class Detail extends Component {
 
 			},
 			onError: function(res) {
-				console.log("err");
+				console.log("err detail");
 			}
 		};
 
@@ -66,7 +57,6 @@ class Detail extends Component {
 	}
 
 	render() {
-        debugger
 		var details = this.props.details || {},
 			detailStr = details.hasOwnProperty(this.newsId) ? details[this.newsId] : '';
 
@@ -109,11 +99,11 @@ class Detail extends Component {
 	        	<div className="btns">
 	        		<Touch onTap={() => {
         				// this.context.router.goBack();
-        				this.context.router.push('/' + spaPath);
+        				this.context.router.push('/index.html');
         				// this.context.router
         			}}>首页</Touch>
         			<Touch onTap={() => {
-        				this.context.router.push('/' + spaPath + '/comment/' + this.commentId);
+        				this.context.router.push('/index.html/comment/' + this.commentId);
         			}}>精彩评论</Touch>
 	        	</div>
 	        </div>

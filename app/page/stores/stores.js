@@ -26,6 +26,12 @@ const initialState = {
             }
         },
     },
+    details: {
+
+    },
+    comments: {
+        
+    },
     listLoading: false,
     spinLoading: true
 };

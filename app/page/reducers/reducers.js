@@ -8,11 +8,13 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux'
 import merge from 'lodash.merge';
-import { setItem } from 'utils';
+import { getItem, setItem } from 'utils';
 import initialState from '../stores/stores';
 import {
     GET_NEWS_LIST,
-    GET_TOP_NEWS
+    GET_TOP_NEWS,
+    GET_COMMENT_LIST, 
+    GET_NEWS_DETAIL, 
 } from '../common/constants/constants';
 import {
     GET_ARGS,
@@ -21,7 +23,8 @@ import {
     TOGGLE_LIST_LOADING,
     TOGGLE_SPIN_LOADING,
     LIKE_NEWS,
-    DISLIKE_NEWS
+    DISLIKE_NEWS,
+    GET_LOCAL_LIKE,
 } from '../actions/actions';
 
 
@@ -117,6 +120,20 @@ var news = function(state = initialState.news, action) {
     }
 };
 
+var details = function(state = initialState.details, action) {
+    switch (action.type) {
+        case GET_NEWS_DETAIL + '_SUCCESS':
+            var newState = merge({}, state);
+            if (!action.data || !action.data.content) {
+                return newState;
+            }
+            newState[action.param.news_id] = action.data.content;
+            return newState;
+        default:
+            return state;
+    }
+}
+
 var args = function(state = initialState.args, action) {
     switch(action.type) {
         case GET_ARGS:
@@ -161,6 +178,7 @@ const rootReducer = combineReducers({
     args,
     tabs,
     news,
+    details,
     listLoading,
     spinLoading,
 });

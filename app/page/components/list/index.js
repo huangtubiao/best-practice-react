@@ -45,7 +45,6 @@ export default class List extends Component {
 					win.focus();
 				}
 				else {
-                    debugger
 					if (!this.props.details.hasOwnProperty(item.id)) {
 						this.props.getNewsDetail(item.id);
 					}

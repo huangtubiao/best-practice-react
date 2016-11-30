@@ -6,7 +6,7 @@ import React, { Component, PropTypes } from 'react';
 import merge from 'lodash.merge';
 import { render } from 'react-dom';
 import Connect from '../connect/connect';
-import { GET_NEWS_LIST, GET_TOP_NEWS } from '../common/constants/constants';
+import { GET_NEWS_LIST, GET_TOP_NEWS, GET_NEWS_DETAIL } from '../common/constants/constants';
 import { LATEST_NEWS, LIKE_NEWS } from '../constants/constants';
 
 require('./index.scss');
@@ -26,6 +26,7 @@ class Wrapper extends Component {
         this.loadNewsList = this.loadNewsList.bind(this);
         this.loadData = this.loadData.bind(this);
         this.loadDataForScroll = this.loadDataForScroll.bind(this);
+        this.getNewsDetail = this.getNewsDetail.bind(this);
     }
 
     // 这个阶段表示组件对应的 DOM 已经存在，我们可以在这个时候做一些依赖 DOM 的操作
@@ -131,6 +132,30 @@ class Wrapper extends Component {
 
         this.props.request(url, param, opts);
     }
+
+    getNewsDetail(newsId) {
+        let url = GET_NEWS_DETAIL,
+            opts = {};
+
+        var pa = merge({}, {
+            // url: item.url,
+            news_id: newsId,//item.id,
+            v: (new Date()).getTime(),
+        }, pa);
+
+        var param = {
+            param: pa,
+            ajaxType: 'POST',
+            onSuccess: function(data) {
+                
+            },
+            onError: function(res) {
+                console.log("err");
+            }
+        };
+
+        this.props.request(url, param, opts);
+    }
  
     render() {
 
@@ -155,8 +180,9 @@ class Wrapper extends Component {
                             news={this.props.news.listLatest}
                             listInfo={this.props.news.listInfo.listLatest}
                             args={this.props.args}
-                            request={this.props.request}
                             likeNews={this.props.likeNews}
+                            getNewsDetail={this.getNewsDetail}
+                            details={this.props.details}
                         />
                         <List 
                             tabs={this.props.tabs}
@@ -164,8 +190,9 @@ class Wrapper extends Component {
                             news={this.props.news.listLike}
                             listInfo={this.props.news.listInfo.listLike}
                             args={this.props.args}
-                            request={this.props.request}
                             dislikeNews={this.props.dislikeNews}
+                            getNewsDetail={this.getNewsDetail}
+                            details={this.props.details}
                         />
                     </Scroll>
                 </div>
@@ -173,5 +200,9 @@ class Wrapper extends Component {
         )
     }
 }
+
+Wrapper.contextTypes = {
+    router: React.PropTypes.object.isRequired
+};
 
 export default Connect(Wrapper);

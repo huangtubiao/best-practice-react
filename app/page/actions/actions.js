@@ -15,6 +15,7 @@ export const TABS_UPDATE = 'TABS_UPDATE';
 
 export const LIKE_NEWS = 'LIKE_NEWS';
 export const DISLIKE_NEWS = 'DISLIKE_NEWS';
+export const GET_LOCAL_LIKE = 'GET_LOCAL_LIKE';
 
 
 
@@ -43,4 +44,8 @@ export function likeNews(value) {
 
 export function dislikeNews(value) {
     return { type: DISLIKE_NEWS, value };
+}
+
+export function getLocalLikeData(value) {
+    return { type: GET_LOCAL_LIKE, value };
 }

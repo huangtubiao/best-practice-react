@@ -6,8 +6,16 @@
  */
 import { connect } from 'react-redux';
 import { request } from '../common/actions/actions';
-import { getArgs, updateActiveTab, toggleListLoading, toggleSpinLoading, likeNews,
-        dislikeNews } from '../actions/actions';
+import { getArgs, 
+    updateActiveTab, 
+    toggleContent,
+    toggleListLoading, 
+    toggleSpinLoading, 
+    toggleDialog, 
+    likeNews, 
+    dislikeNews, 
+    getLocalLikeData 
+} from '../actions/actions';
 
 
 // Map Redux state to component props；
@@ -16,7 +24,8 @@ function mapStateToProps(state) {
     return {
         args: state.args,
         tabs: state.tabs,
-        news: state.news
+        news: state.news,
+        details: state.details
     };
 }
 
