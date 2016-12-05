@@ -39,15 +39,14 @@ export default class List extends Component {
     jumpToDetail(item) {
         return (e) => {
             if (!this.isClickOnBtn) {
-                console.dir(item.articletype);
 				if (item.articletype === '100') {
 					var win = window.open(item.url, '_blank');
 					win.focus();
 				}
 				else {
-					if (!this.props.details.hasOwnProperty(item.id)) {
-						this.props.getNewsDetail(item.id);
-					}
+					// if (!this.props.details.hasOwnProperty(item.id)) {
+					// 	this.props.getNewsDetail(item.id);
+					// }
 					this.context.router.push('/index/detail/' + item.id + '/' + item.commentid);
 				}
             }

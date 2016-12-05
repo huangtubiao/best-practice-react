@@ -76,7 +76,7 @@ exports.list = function* () {
         method: 'GET'
     });
     
-    this.set('Access-Control-Allow-Origin', 'http://localhost:9000');
+    this.set('Access-Control-Allow-Origin', 'http://localhost:9001');
     this.set('Access-Control-Allow-Credentials', true);
 
     this.body = res.body;
@@ -92,7 +92,7 @@ exports.detail = function* () {
         ignoreHref: false,
     });
 
-    this.set('Access-Control-Allow-Origin', 'http://localhost:9000');
+    this.set('Access-Control-Allow-Origin', 'http://localhost:9001');
     this.set('Access-Control-Allow-Credentials', true);
     
     this.body = {
@@ -114,7 +114,7 @@ exports.comment = function* () {
         method: 'GET'
     });
     
-    this.set('Access-Control-Allow-Origin', 'http://localhost:9000');
+    this.set('Access-Control-Allow-Origin', 'http://localhost:9001');
     this.set('Access-Control-Allow-Credentials', true);
 
     this.body = res.body;
