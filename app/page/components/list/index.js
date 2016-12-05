@@ -47,7 +47,7 @@ export default class List extends Component {
 					// if (!this.props.details.hasOwnProperty(item.id)) {
 					// 	this.props.getNewsDetail(item.id);
 					// }
-					this.context.router.push('/index/detail/' + item.id + '/' + item.commentid);
+					this.context.router.push('/index.html/detail/' + item.id + '/' + item.commentid);
 				}
             }
         }

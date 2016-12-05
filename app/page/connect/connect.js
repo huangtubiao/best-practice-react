@@ -25,7 +25,8 @@ function mapStateToProps(state) {
         args: state.args,
         tabs: state.tabs,
         news: state.news,
-        details: state.details
+        details: state.details,
+        comments: state.comments
     };
 }
 

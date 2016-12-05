@@ -10,6 +10,7 @@ import { initialStore } from './stores/stores';
 
 import IndexWrapper from './container/index';
 import DetailWrapper from './container/detail';
+import CommentWrapper from './container/comment';
 
 import App from './container/app';
 // redux-devtools 可以让你实时的监控Redux的状态树的Store
@@ -19,7 +20,7 @@ import { DEBUG } from './constants/constants';
 // Redux 和 React Router 不能协同工作
 // react-router-redux 可以协调这两个库，保持路由与应用状态（state）同步
 import { syncHistoryWithStore } from 'react-router-redux';
-import { Router, IndexRoute, Route, browserHistory, useRouterHistory, hashHistory } from 'react-router';
+import { Router, IndexRoute, Route, browserHistory, useRouterHistory, hashhistory } from 'react-router';
 
 require('../css/common/common.scss');
 
@@ -44,7 +45,8 @@ export default class Root extends Component {
                     <Router history={history}>
                         <Route path="/index.html" component={App}>
                             <IndexRoute component={IndexWrapper}/>
-                            <Route path="/index/detail/:id/:commentid" component={DetailWrapper}/>
+                            <Route path="/index.html/detail/:id/:commentid" component={DetailWrapper}/>
+                            <Route path="/index.html/comment/:id" component={CommentWrapper}/>
                         </Route>
                     </Router>
                     { DevToolsWrapper }

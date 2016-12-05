@@ -132,7 +132,23 @@ var details = function(state = initialState.details, action) {
         default:
             return state;
     }
-}
+};
+
+var comments = function(state = initialState.comments, action) {
+    switch (action.type) {
+        case GET_COMMENT_LIST + '_SUCCESS':
+            var newState = merge({}, state);
+            if (!action.data || !action.data.comments || !action.data.comments.list) {
+                return newState;
+            }
+
+            newState[action.param.comment_id] = action.data.comments.list;
+            return newState;
+        default:
+            
+            return state;
+    }
+};
 
 var args = function(state = initialState.args, action) {
     switch(action.type) {
@@ -179,6 +195,7 @@ const rootReducer = combineReducers({
     tabs,
     news,
     details,
+    comments,
     listLoading,
     spinLoading,
 });
